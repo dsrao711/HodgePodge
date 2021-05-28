@@ -1,0 +1,44 @@
+{% extends "./layouts/layout.html" %} {% block content %}
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-lg-4">
+            <img src="../static/assets/1.png" class="img-responsive" style="width:100%">
+        </div>
+        <div class="col-lg-2">
+        </div>
+        <div class="col-lg-6">
+            <form method="POST" action="" class="mx-auto">
+                {{ form.hidden_tag() }}
+                <fieldset class="form-group">
+                    <h2 class="text-primary">Login</h2>
+                    <div class="form-group">
+                        {{ form.email.label(class="form-control-label") }} {% if form.email.errors %} {{ form.email(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                            <span>{{ error }}</span> {% endfor %}
+                        </div>
+                        {% else %} {{ form.email(class="form-control form-control-lg") }} {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.password.label(class="form-control-label") }} {% if form.password.errors %} {{ form.password(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                            <span>{{ error }}</span> {% endfor %}
+                        </div>
+                        {% else %} {{ form.password(class="form-control form-control-lg") }} {% endif %}
+                    </div>
+                    <div class="form-check">
+                        {{ form.remember(class="form-check-input") }} {{ form.remember.label(class="form-check-label") }}
+                    </div>
+                </fieldset>
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-primary") }}
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
