@@ -7,7 +7,10 @@ def create_app(config_class=Config):
     app.config.from_object(Config)
     
     from app.users.routes import users
+    from app.main.routes import main
+    
     
     app.register_blueprint(users)
+    app.register_blueprint(main)
     
     return app
