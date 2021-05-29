@@ -97,3 +97,8 @@ function onMessageSend() {
 
     socket.emit("message", data)
 }
+
+// translate
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
