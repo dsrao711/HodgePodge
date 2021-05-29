@@ -1,10 +1,35 @@
-const socket = io();
+//Scroll
 
-var messageBody = document.getElementById("messages");
-messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
+
+var scrolled = false;
+
+function updateScroll() {
+    if (!scrolled) {
+        var element = document.getElementById("msg");
+        element.scrollTop = element.scrollHeight;
+    }
+}
+
+$("#msg").on('scroll', function() {
+    scrolled = true;
+});
+
+
+//socket 
+
+
+const socket = io();
 
 socket.on("message", (data) => {
     console.log(data);
+    var ele = document.getElementById("msg")
+
+    ele.innerHTML = `${ele.innerHTML}
+    <div class="flex-row d-flex">
+        <div class="alert alert-success"  style="max-width: 40% ; height : 7vh ">
+            <p>${data.msg}</p>
+        </div>
+    </div>`
 });
 
 function chatapp(name) {
@@ -19,7 +44,10 @@ function joinRoom() {
 }
 
 function onMessageSend() {
-    var msg = document.getElementById("message").value;
+
+    var ele = document.getElementById("message");
+    var msg = ele.value;
+    ele.value = ""
 
     var data = {
         to: localStorage.getItem("currChat"),
@@ -28,15 +56,15 @@ function onMessageSend() {
     }
     console.log(data);
 
-    var ele = document.getElementById("messages")
-    if (ele.innerHTML == "") {
-        ele.innerHTML = `<div class="flex justify-end">
-            ${data.msg}
-        </div>`
-    } else {
-        ele.innerHTML = `${ele.innerHTML}<div class="flex justify-end">
-            ${data.msg}
-        </div>`
-    }
+    var ele = document.getElementById("msg")
+
+    ele.innerHTML = `${ele.innerHTML}
+    <div class="flex-row-reverse d-flex">
+        <div class="alert alert-info"  style="max-width: 40% ; height : 7vh ">
+            <p>${data.msg}</p>
+        </div>
+    </div>`
+
+
     socket.emit("message", data)
 }
