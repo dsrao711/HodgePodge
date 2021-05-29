@@ -31,7 +31,7 @@
                     <tbody>
                         {% for friend in friends -%}
                         <tr>
-                            <th scope="row" onclick=chatapp( "{{current_user.username }}")>
+                            <th scope="row" onclick=chatapp("{{ friend.username }}")>
                                 {{ friend.username | string }}
                             </th>
                         </tr>
@@ -47,17 +47,12 @@
                 <div class="card-body" style="position: absolute ; bottom : 10px ;width : 100%">
 
                     <div id="msg" class="mb-3 overflow-auto" style="max-height: 56vh">
-
-
-
                     </div>
                     <script>
                         var messageBody = document.getElementById("msg");
                         messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
-                        //console.log(messageBody.innerHTML)
-                        console.log(messageBody.clientHeight)
-                        console.log(messageBody.scrollHeight)
                     </script>
+
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Type.." id="message" style="max-width : 100%">
                         <div class="input-group-append">
