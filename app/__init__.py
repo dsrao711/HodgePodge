@@ -12,7 +12,7 @@ mail = Mail()
 db = SQLAlchemy()
 bcrypt = Bcrypt()
 login_manager = LoginManager()
-socketio = SocketIO(path="/socket")
+socketio = SocketIO()
 
 def register_extensions(app):
     # socket extension

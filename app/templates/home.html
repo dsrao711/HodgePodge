@@ -1,42 +1,5 @@
 {% extends "layouts/layout.html" %} {% block content %}
 
-
-<!-- <div class="row">
-        <div class="col-lg-6">
-            <div class="row">
-                <div class="col-lg-6">
-                    <img src="{{ image_file }}" class="img-responsive p-3" style="width:100% ; height:18rem;">
-                </div>
-                <div class="col-lg-6">
-                    <h5 class="card-title ">👦{{current_user.username }}</h5>
-                    <h5 class="card-text">📧{{current_user.email }}</h5>
-                </div>
-            </div>
-            <div class="row">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th class="table-info" scope="col">Friends</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for friend in friends %}
-                        <tr>
-                            <th scope="row">{{friend.username}}</th>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-
-        </div>
-
-        <div class="col-lg-6 mt-4">
-
-        </div>
-    </div> -->
-
-
 <div class="m-4 p-0">
     <div class="row">
         <div class="col-lg-3">
@@ -48,6 +11,10 @@
                         </div>
                         <div class="col-lg-7 mt-4">
                             <p class="card-title ">👦{{current_user.username }}</p>
+                            <script>
+                                localStorage.setItem("currUsername", "{{current_user.username }}")
+                                joinRoom();
+                            </script>
                             <p class="card-text">📧{{current_user.email }}</p>
                         </div>
                     </div>
@@ -62,9 +29,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for friend in friends %}
+                        {% for friend in friends -%}
                         <tr>
-                            <th scope="row" onclick="chatapp({{friend.username}})">{{friend.username}}</th>
+                            <th scope="row" onclick=chatapp("{{ friend.username }}")>{{friend.username}}</th>
                         </tr>
                         {% endfor %}
                     </tbody>
@@ -74,12 +41,12 @@
 
         <div class="col-lg-9">
             <div class="card border-primary mb-3" style="max-width: 100% ; height : 80vh">
-                <div class="card-header">Friend</div>
+                <div class="card-header" id="chat-header">Friend</div>
                 <div class="card-body" style="position: absolute ; bottom : 10px ;width : 100%">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Type.." id="inputDefault" style="max-width : 100%">
+                        <input type="text" class="form-control" placeholder="Type.." id="message" style="max-width : 100%">
                         <div class="input-group-append">
-                            <button class="btn btn-success" type="submit">Send</button>
+                            <button class="btn btn-success" type="submit" onclick=onMessageSend() >Send</button>
                         </div>
                     </div>
                 </div>

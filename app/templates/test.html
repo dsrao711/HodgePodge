@@ -9,19 +9,19 @@
     </ul>
     <script type="text/javascript" charset="utf-8">
         var socket = io();
+        socket.emit('join', {"room": "user1"})
         function sendMessage () {
             var data = {
-                "to": "user2",
+                "to": "user1",
                 "from": "user1",
                 "msg": document.getElementById("msg").value
             }
-            console.log(data);
             socket.emit("message", data)
         }
 
         socket.on("message", (data) => {
             console.log(data);
         });
-        
+
     </script>
 {% endblock content %}
