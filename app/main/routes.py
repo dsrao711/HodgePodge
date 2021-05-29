@@ -20,4 +20,3 @@ def home():
     form.email.data = current_user.email
     image_file = url_for('static', filename='/profile_pics/' + current_user.image_file)
     return render_template('home.html' , image_file=image_file ,form = form , friends = friends)
-
