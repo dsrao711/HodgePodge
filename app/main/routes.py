@@ -5,5 +5,6 @@ main = Blueprint('main', __name__)
 
 @main.route("/")
 def about():
-    return render_template('home.html')
+    chats = ["Goblu", "Gobli", "Chinnu", "Gapuli"]*56
+    return render_template('chat.html',  chats=chats)
 
