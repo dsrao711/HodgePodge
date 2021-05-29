@@ -44,7 +44,11 @@ def create_app():
     
     app.config.from_object(Config)
 
+    # registering extensions
     register_extensions(app)
+
+    # initialize database
+    # db_init(app)
     
     # registering blueprints
     from app.users.routes import users
