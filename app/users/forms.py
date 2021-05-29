@@ -35,6 +35,7 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Login')
 
 
+
 class UpdateAccountForm(FlaskForm):
     username = StringField('Username',
                            validators=[DataRequired(), Length(min=2, max=20)])
@@ -54,5 +55,3 @@ class UpdateAccountForm(FlaskForm):
             user = User.query.filter_by(email=email.data).first()
             if user:
                 raise ValidationError('That email is taken. Please choose a different one.')
-
-
