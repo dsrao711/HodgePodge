@@ -31,7 +31,9 @@
                     <tbody>
                         {% for friend in friends -%}
                         <tr>
-                            <th scope="row" onclick=chatapp("{{ friend.username }}")>{{friend.username}}</th>
+                            <th scope="row" onclick=chatapp("{{friend.username}}")>
+                                {{ friend.username | string }}
+                            </th>
                         </tr>
                         {% endfor %}
                     </tbody>
@@ -43,6 +45,9 @@
             <div class="card border-primary mb-3" style="max-width: 100% ; height : 80vh">
                 <div class="card-header" id="chat-header">Friend</div>
                 <div class="card-body" style="position: absolute ; bottom : 10px ;width : 100%">
+                    <div class="mb-3" id="messages">
+                        
+                    </div>
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Type.." id="message" style="max-width : 100%">
                         <div class="input-group-append">
