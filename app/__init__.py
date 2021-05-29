@@ -48,7 +48,7 @@ def create_app():
     register_extensions(app)
 
     # initialize database
-    # db_init(app)
+    db_init(app)
     
     # registering blueprints
     from app.users.routes import users
