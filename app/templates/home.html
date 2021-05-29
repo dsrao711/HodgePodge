@@ -31,7 +31,7 @@
                     <tbody>
                         {% for friend in friends -%}
                         <tr>
-                            <th scope="row" onclick=chatapp("{{friend.username}}")>
+                            <th scope="row" onclick=chatapp( "{{friend.username}}")>
                                 {{ friend.username | string }}
                             </th>
                         </tr>
@@ -45,13 +45,61 @@
             <div class="card border-primary mb-3" style="max-width: 100% ; height : 80vh">
                 <div class="card-header" id="chat-header">Friend</div>
                 <div class="card-body" style="position: absolute ; bottom : 10px ;width : 100%">
-                    <div class="mb-3" id="messages">
-                        
+                    <div id="messages" class="mb-3 overflow-auto" style="max-height: 56vh">
+
+                        <div class="flex-row-reverse d-flex">
+                            <div class="alert alert-info" id="sent_messages" style="max-width: 40% ; height : 7vh ">
+                                <p>Rec</p>
+                            </div>
+                        </div>
+
+                        <div class="flex-row d-flex">
+                            <div class="alert alert-success" id="rec_messages" style="max-width: 40% ; height : 7vh;">
+                                <p>Send</p>
+                            </div>
+                        </div>
+
+                        <div class="flex-row-reverse d-flex">
+                            <div class="alert alert-info" id="sent_messages" style="max-width: 40% ; height : 7vh ">
+                                <p>Rec</p>
+                            </div>
+                        </div>
+
+                        <div class="flex-row d-flex">
+                            <div class="alert alert-success" id="rec_messages" style="max-width: 40% ; height : 7vh;">
+                                <p>Send</p>
+                            </div>
+                        </div>
+
+                        <div class="flex-row-reverse d-flex">
+                            <div class="alert alert-info" id="sent_messages" style="max-width: 40% ; height : 7vh ">
+                                <p>Rec</p>
+                            </div>
+                        </div>
+
+                        <div class="flex-row d-flex">
+                            <div class="alert alert-success" id="rec_messages" style="max-width: 40% ; height : 7vh;">
+                                <p>Send</p>
+                            </div>
+                        </div>
+                        <div class="flex-row-reverse d-flex">
+                            <div class="alert alert-info" id="sent_messages" style="max-width: 40% ; height : 7vh ">
+                                <p>Rec</p>
+                            </div>
+                        </div>
+
+                        <div class="flex-row d-flex">
+                            <div class="alert alert-success" id="rec_messages" style="max-width: 40% ; height : 7vh;">
+                                <p>Send</p>
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="input-group mb-3">
+
+                    <div class="input-group">
                         <input type="text" class="form-control" placeholder="Type.." id="message" style="max-width : 100%">
                         <div class="input-group-append">
-                            <button class="btn btn-success" type="submit" onclick=onMessageSend() >Send</button>
+                            <button class="btn btn-success" type="submit" onclick=onMessageSend()>Send</button>
                         </div>
                     </div>
                 </div>

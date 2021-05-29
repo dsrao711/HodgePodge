@@ -1,4 +1,8 @@
 const socket = io();
+
+var messageBody = document.getElementById("messages");
+messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
+
 socket.on("message", (data) => {
     console.log(data);
 });
@@ -11,7 +15,7 @@ function chatapp(name) {
 }
 
 function joinRoom() {
-    socket.emit('join', {"room": localStorage.getItem("currUsername") || "user1" });
+    socket.emit('join', { "room": localStorage.getItem("currUsername") || "user1" });
 }
 
 function onMessageSend() {
