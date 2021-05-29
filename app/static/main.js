@@ -23,5 +23,16 @@ function onMessageSend() {
         msg: msg
     }
     console.log(data);
+
+    var ele = document.getElementById("messages")
+    if (ele.innerHTML == "") {
+        ele.innerHTML = `<div class="flex justify-end">
+            ${data.msg}
+        </div>`
+    } else {
+        ele.innerHTML = `${ele.innerHTML}<div class="flex justify-end">
+            ${data.msg}
+        </div>`
+    }
     socket.emit("message", data)
 }
