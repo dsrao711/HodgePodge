@@ -17,7 +17,6 @@
         <ul class="navbar-nav my-2 my-lg-0 ">
             {% if current_user.is_authenticated %}
             <a class="nav-link mr-sm-2 " href="{{ url_for( 'users.account') }} ">Edit Profile</a>
-            <a class="nav-link mr-sm-2 " href="{{ url_for( 'users.logout') }} ">Find Friends</a>
             <a class="btn btn-primary mr-sm-2 " href="{{ url_for( 'users.logout') }} ">Log Out</a> {% else %}
             <a class="btn btn-primary mr-sm-2 " href="/login ">Log in</a>
             <a class="btn btn-danger my-2 my-sm-0 " href="/register ">Sign Up</a> {% endif %}
