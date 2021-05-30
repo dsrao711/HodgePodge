@@ -15,11 +15,15 @@ https://user-images.githubusercontent.com/59830064/120094360-83015300-c13d-11eb-
 - HTML
 - SQL Alchemy
 
+
 🔸Powered by Google Translate
 
 🔸 Steps to run this project on your local device : 
+
  1 . Clone this repository or download the code
+ 
  2 . Install virtual environment
+
 
 ```
 cd HodgePodge
@@ -28,7 +32,9 @@ py -m venv env
 
 ```
 
+
 3. Install all the requirements 
+
 
 ```
 pip install -r requirements.txt
