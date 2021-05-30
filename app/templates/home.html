@@ -35,7 +35,7 @@
                         <tbody>
                             {% for friend in friends -%}
                             <tr class="table-light">
-                                <th scope="row" onclick=chatapp( "{{ friend.username }}")>
+                                <th scope="row" onclick=chatapp("{{friend.username}}")>
                                     {{ friend.username | string }}
                                 </th>
                             </tr>
